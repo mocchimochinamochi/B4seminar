@@ -7,6 +7,23 @@
 3.  分析・統計的有意差検定を実施する
 　※ M1による統計的有意差検定レクチャーあり（実験的工学手法の課題）
 4.  スライドでまとめて発表する（7月中)
+<<<<<<< HEAD
+=======
 
+>>>>>>> 981b09ea4ebea9aeb9c2dfe88e02d318edbad7ca
 
-
+## 4/28
+- GitHubとVSCodeの連携
+    1. GitHub Repositoriesの拡張機能をインストール
+    2. ソース管理→アカウントからGitHubにサインイン
+    3. 認証完了したらVSCodeからコマンドパレットを開く
+    4. 「Git: Clone」と入力
+    5. GitHubのリポジトリURLを入力（例：https://github.com/ユーザー名/リポジトリ名.git）
+- 議論内容の書き込みと共有方法
+    1. ターミナルを開く
+    2. git config --global user.name "あなたの名前"
+       git config --global user.email "あなたのメールアドレス"を実行
+    3. 変更内容をコミットする
+    4. 他のメンバーはリモートリポジトリからプルする
+ 
+あああ

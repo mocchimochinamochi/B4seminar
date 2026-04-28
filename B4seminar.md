@@ -25,3 +25,5 @@
        git config --global user.email "あなたのメールアドレス"を実行
     3. 変更内容をコミットする
     4. 他のメンバーはリモートリポジトリからプルする
+
+aaaaaaaaaaaaaa

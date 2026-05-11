@@ -1,10 +1,15 @@
 import requests
 import time
+import os
 import matplotlib.pyplot as plt
 from collections import Counter
+from dotenv import load_dotenv
 
-# APIキーは、ご自身の有効なキーに書き換えてください。
-API_KEY = "YOUR_API_KEY_HERE"
+# .envファイルから環境変数を読み込む
+load_dotenv()
+
+# APIキーを環境変数から取得
+API_KEY = os.getenv("GEMINI_API_KEY")
 URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
 
 # ---- ペルソナ定義 ----

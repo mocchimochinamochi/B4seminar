@@ -1,4 +1,4 @@
-類似研究
+類似研究（調査：平野）
 
 ■大規模言語モデルは人間のアンケート回答集合を模倣できるか
 https://www.anlp.jp/proceedings/annual_meeting/2026/pdf_dir/B4-14.pdf

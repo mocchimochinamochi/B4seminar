@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 # APIキーは情報漏洩に気を付けてください．
-API_KEY = "AIzaSyADImZQ3DHqB-DER_s-MWmSQXg5JvNwte4"
+API_KEY = "API_KEY"
 URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-robotics-er-1.5-preview:generateContent?key={API_KEY}"
 
 # 西澤さんの研究をプロンプトにしてみました．低スペのLLMだと正確に回答してくれません

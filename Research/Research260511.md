@@ -40,6 +40,7 @@
 
 ## 6. 参考文献
 https://big5-basic.com/front/column/survey-2026-vol1
+https://big5-basic.com/front/column/survey-2026-vol3-prefecture-ranking
 
 順位	タイプ	通称	割合	参考MBTI	分布
 1	IHRTS	慎重な現実主義者	15.05%	ISTP	

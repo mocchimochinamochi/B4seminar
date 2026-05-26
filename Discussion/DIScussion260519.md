@@ -1,0 +1,29 @@
+# 5月19日(火)
+
+# 役割
+加野(リーダー)
+河西(サブリーダー)
+吉岡
+平野
+
+# 進捗報告
+吉原さんが出してくださった研究を拝見した。
+
+■大規模言語モデルは人間のアンケート回答集合を模倣できるか
+→皆さんのB４研究の全体像をあまり理解できていないので，あれですが，下記の論文が一番バイブルに当たるのではないでしょうか？
+（紹介してもらっている論文でも引用されています）
+Lisa P Argyle, et al. Out of one, many: Using language models to simulate human samples. Polit. Anal., Vol. 31, No. 3, pp. 337–351, July 2023
+https://www.cambridge.org/core/journals/political-analysis/article/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49
+
+あとは危険性を示唆している論文もありそうです
+Wang, A., Morgenstern, J. & Dickerson, J.P. Large language models that replace human participants can harmfully misportray and flatten identity groups. Nat Mach Intell 7, 400–411 (2025). https://doi.org/10.1038/s42256-025-00986-z
+
+# 議論
+一旦自分で回答してみた
+→ぜんぶ0だった。
+
+・「経験を与える」どうやって？
+→アンケートによって与える経験を変えなければいけなさそう
+例えば西澤さんの研究の場合、「AIを普段から会社で利用している」という情報は回答結果に影響しそうだが、「中学3年生でピーマンを克服した」という情報は回答結果に影響しなさそう。
+
+

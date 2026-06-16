@@ -1,4 +1,5 @@
 import time
+import random
 import os
 import re
 import csv
@@ -70,6 +71,32 @@ AGE_GROUPS = [
     {"label": "70代以上", "weight": 0.21},
 ]
 
+# ---- 地域定義 (日本の地方別人口構成比の概算) ----
+REGIONS = [
+    {"label": "北海道・東北", "weight": 0.11},
+    {"label": "関東", "weight": 0.34},
+    {"label": "中部", "weight": 0.17},
+    {"label": "近畿", "weight": 0.18},
+    {"label": "中国・四国", "weight": 0.09},
+    {"label": "九州・沖縄", "weight": 0.11},
+]
+
+# ---- 経済状況定義 ----
+ECONOMIC_STATUSES = [
+    {"label": "高所得層", "weight": 0.12},
+    {"label": "中間所得層", "weight": 0.65},
+    {"label": "低所得層", "weight": 0.23},
+]
+
+# ---- 職種定義 ----
+OCCUPATIONS = [
+    {"label": "公務員・団体職員", "weight": 0.10},
+    {"label": "会社員(事務・技術)", "weight": 0.45},
+    {"label": "自営業・自由業", "weight": 0.10},
+    {"label": "パート・アルバイト", "weight": 0.20},
+    {"label": "学生・主婦・無職", "weight": 0.15},
+]
+
 QUESTION_TEXT = """
 以下のアンケートについて回答してください。思考過程やセクションは不要で、「1,2,3,4,5」のように、半角スペースなしの数字のみ、カンマ区切りで回答してください。
 
@@ -121,37 +148,75 @@ Q18 多くの人はこのAIを使うことを勧めると思う
 Q19 AIには感情がある
 """
 
-N_TOTAL = 1000
-
-# ---- 試行回数の割り当て ----
-trials = []
-for g in GENDERS:
-    for a in AGE_GROUPS:
-        for p in PERSONAS:
-            # 各属性の比率を掛け合わせる
-            ratio = g["weight"] * a["weight"] * p["weight"]
-            count = round(N_TOTAL * ratio)
-            for _ in range(count):
-                trials.append({
-                    "gender": g["label"],
-                    "age": a["label"],
-                    "type": p["type"],
-                    "desc": p["desc"]
-                })
-
-while len(trials) < N_TOTAL:
-    # 不足分は最初の属性セットで埋める
-    trials.append(trials[0])
-while len(trials) > N_TOTAL:
-    trials.pop()
-
+N_TOTAL = 1000  # シミュレーションする総人数
 CSV_FILE = "survey_results_persona.csv"
 
-# CSVのヘッダー作成（存在しない場合のみ）
+# ==========================================
+# 比較実験設定 (要素の選択)
+# ==========================================
+# ・"SELECT" の場合： その要素の全ラベルを「人口比率」通りに含めます（比較変数にする）
+# ・"IGNORE" の場合： その要素の最初のラベルで固定します（比較から除外する）
+# ・["ラベル名"] の場合： 指定した特定のラベルのみに限定します
+TARGET_FILTERS = {
+    "Gender":      "SELECT", # 男女で比較
+    "Age":         "IGNORE", # 比較しない（20代に固定）
+    "Region":      "IGNORE", # 比較しない（北海道・東北に固定）
+    "Economy":     "IGNORE", # 比較しない（高所得層に固定）
+    "Occupation":  "IGNORE", # 比較しない（公務員に固定）
+    "PersonaType": "SELECT"  # 性格タイプで比較
+}
+
+# CSVのカラム定義
+CSV_HEADERS = ["Trial", "Gender", "Age", "Region", "Economy", "Occupation", "PersonaType", "PersonaDesc"] + [f"Q{i+1}" for i in range(19)]
+
+def get_active_elements(defs, targets, key="label"):
+    if targets == "SELECT":
+        return defs
+    if targets == "IGNORE":
+        return [defs[0]] # リストの最初の要素を固定値として返す
+    return [d for d in defs if d.get(key) in targets] if targets else defs
+
+# フィルタリング適用後のリスト作成
+active_sets = {
+    "gender": get_active_elements(GENDERS, TARGET_FILTERS["Gender"]),
+    "age": get_active_elements(AGE_GROUPS, TARGET_FILTERS["Age"]),
+    "region": get_active_elements(REGIONS, TARGET_FILTERS["Region"]),
+    "economy": get_active_elements(ECONOMIC_STATUSES, TARGET_FILTERS["Economy"]),
+    "occupation": get_active_elements(OCCUPATIONS, TARGET_FILTERS["Occupation"]),
+    "persona": get_active_elements(PERSONAS, TARGET_FILTERS["PersonaType"], key="type")
+}
+
+# ---- 全組み合わせと重みの計算 ----
+all_combinations = []
+weights = []
+
+for g in active_sets["gender"]:
+    for a in active_sets["age"]:
+        for r in active_sets["region"]:
+            for e in active_sets["economy"]:
+                for o in active_sets["occupation"]:
+                    for p in active_sets["persona"]:
+                        all_combinations.append({
+                            "Gender": g["label"],
+                            "Age": a["label"],
+                            "Region": r["label"],
+                            "Economy": e["label"],
+                            "Occupation": o["label"],
+                            "PersonaType": p["type"],
+                            "PersonaDesc": p["desc"]
+                        })
+                        # 選択された範囲内での相対比率を計算
+                        weights.append(g["weight"] * a["weight"] * r["weight"] * e["weight"] * o["weight"] * p["weight"])
+
+# サンプリング実行
+random.seed(42)
+trials = random.choices(all_combinations, weights=weights, k=N_TOTAL)
+
+# CSV初期化
 if not os.path.exists(CSV_FILE):
     with open(CSV_FILE, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Trial", "Gender", "Age", "PersonaType", "PersonaDesc"] + [f"Q{i+1}" for i in range(19)])
+        writer = csv.DictWriter(f, fieldnames=CSV_HEADERS)
+        writer.writeheader()
 
 # レジューム機能：既存の保存済み件数を確認
 completed_trials = 0
@@ -161,7 +226,8 @@ if os.path.exists(CSV_FILE):
 
 print(f"Total trials to run: {len(trials)}")
 if completed_trials > 0:
-    print(f"Resuming from trial {completed_trials}...")
+    print(f"Trial {completed_trials} から再開します。")
+    print("※注意: 比較要素を変更した場合は、CSVファイルを削除してから実行してください。")
 
 current_key_idx = 0
 client = genai.Client(api_key=API_KEYS[current_key_idx])
@@ -172,7 +238,7 @@ for i, persona in enumerate(trials):
     if i < completed_trials:
         continue
 
-    prompt = f"あなたは{persona['age']}の{persona['gender']}の日本人です。性格は「{persona['desc']}（{persona['type']}）」という特性を持っています。このペルソナになりきって、以下のアンケートに回答してください。\n{QUESTION_TEXT}"
+    prompt = f"あなたは{persona['Region']}在住で{persona['Age']}の{persona['Gender']}、職業は{persona['Occupation']}で経済状況は{persona['Economy']}の日本人です。性格は「{persona['PersonaDesc']}（{persona['PersonaType']}）」という特性を持っています。このペルソナになりきって、以下のアンケートに回答してください。\n{QUESTION_TEXT}"
     max_retries = 3
     attempts = 0
     while attempts < max_retries:
@@ -204,10 +270,14 @@ for i, persona in enumerate(trials):
             
             # Append to CSV per trial for safety
             with open(CSV_FILE, "a", newline="", encoding="utf-8") as f:
-                writer = csv.writer(f)
-                writer.writerow([i, persona['gender'], persona['age'], persona['type'], persona['desc']] + values)
+                writer = csv.DictWriter(f, fieldnames=CSV_HEADERS)
+                row_data = {k: persona.get(k) for k in CSV_HEADERS if k in persona}
+                row_data["Trial"] = i
+                for idx, v in enumerate(values):
+                    row_data[f"Q{idx+1}"] = v
+                writer.writerow(row_data)
 
-            print(f"Trial {i+1}/{N_TOTAL} ({persona['gender']}/{persona['age']}/{persona['type']}): {values}")
+            print(f"Trial {i+1}/{N_TOTAL} ({persona['Gender']}/{persona['Age']}/{persona['PersonaType']}): {values}")
             break
 
         except Exception as e:
@@ -228,9 +298,9 @@ for i, persona in enumerate(trials):
 # グラフ生成のために全データをCSVから読み込み直す
 if os.path.exists(CSV_FILE):
     with open(CSV_FILE, "r", encoding="utf-8") as f:
-        reader = csv.reader(f)
-        next(reader) # header
-        results = [list(map(int, row[5:])) for row in reader]
+        reader = csv.DictReader(f)
+        # Q1〜Q19の値をリストとして抽出
+        results = [[int(row[f"Q{j+1}"]) for j in range(19)] for row in reader]
 
 if results:
     num_questions = 19

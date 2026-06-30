@@ -1,4 +1,3 @@
-import requests
 import time
 import os
 import re
@@ -6,16 +5,18 @@ import csv
 import matplotlib.pyplot as plt
 from collections import Counter
 from dotenv import load_dotenv
+from google import genai
 
 # .envファイルから環境変数を読み込む
-load_dotenv()
+env_path = os.path.join(os.path.dirname(__file__), ".env")
+load_dotenv(env_path)
 
-# APIキーを環境変数から取得
-API_KEY = os.getenv("GEMINI_API_KEY")
-if not API_KEY:
-    print("エラー: .envファイルに GEMINI_API_KEY が設定されていません。")
+# APIキーのリストを環境変数から取得（カンマ区切り想定）
+API_KEYS = [k.strip() for k in os.getenv("GEMINI_API_KEYS", "").split(",") if k.strip()]
+if not API_KEYS or not API_KEYS[0]:
+    print(f"エラー: {env_path} または環境変数に GEMINI_API_KEYS が正しく設定されていません。")
     exit(1)
-URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
+
 
 # ---- ペルソナ定義 ----
 PERSONAS = [
@@ -104,7 +105,7 @@ Q18 多くの人はこのAIを使うことを勧めると思う
 Q19 AIには感情がある
 """
 
-N_TOTAL = 500
+N_TOTAL = 100
 
 # ---- 試行回数の割り当て ----
 trials = []
@@ -118,7 +119,6 @@ while len(trials) < N_TOTAL:
 while len(trials) > N_TOTAL:
     trials.pop()
 
-results = []
 CSV_FILE = "survey_results_persona.csv"
 
 # CSVのヘッダー作成（存在しない場合のみ）
@@ -127,34 +127,45 @@ if not os.path.exists(CSV_FILE):
         writer = csv.writer(f)
         writer.writerow(["Trial", "PersonaType", "PersonaDesc"] + [f"Q{i+1}" for i in range(19)])
 
+# レジューム機能：既存の保存済み件数を確認
+completed_trials = 0
+if os.path.exists(CSV_FILE):
+    with open(CSV_FILE, "r", encoding="utf-8") as f:
+        completed_trials = sum(1 for line in f) - 1
+
 print(f"Total trials to run: {len(trials)}")
+if completed_trials > 0:
+    print(f"Resuming from trial {completed_trials}...")
+
+current_key_idx = 0
+client = genai.Client(api_key=API_KEYS[current_key_idx])
+
+results = [] # 今回のセッションでの結果（後で全件読み込み直します）
 
 for i, persona in enumerate(trials):
+    if i < completed_trials:
+        continue
+
     prompt = f"あなたは{persona['desc']}の日本人です。性格タイプは{persona['type']}です。\n{QUESTION_TEXT}"
-    while True:
+    max_retries = 3
+    attempts = 0
+    while attempts < max_retries:
         try:
-            response = requests.post(
-                URL,
-                headers={"Content-Type": "application/json"},
-                json={
-                    "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": {"temperature": 1.0}
+            response = client.models.generate_content(
+                model="gemini-3-flash-preview",
+                contents=prompt,
+                config={
+                    "temperature": 1.0,
                 }
             )
-            data = response.json()
 
-            if "error" in data:
-                code = data["error"]["code"]
-                if code == 429:
-                    retry_delay = 60
-                    print(f"Trial {i} ({persona['type']}): レート制限 → 待機中...")
-                    time.sleep(retry_delay)
-                    continue
-                else:
-                    print(f"Trial {i} ({persona['type']}): エラー {code} - {data['error']['message']}")
-                    break
+            if not response.text:
+                print(f"Trial {i}: 空のレスポンスを受信 → リトライ")
+                attempts += 1
+                time.sleep(2)
+                continue
 
-            text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            text = response.text.strip()
             # 正規表現で数字のみを抽出（余計な説明文が入っても対応可能に）
             values = [int(v) for v in re.findall(r"\d+", text)]
 
@@ -165,18 +176,35 @@ for i, persona in enumerate(trials):
 
             results.append(values)
             
-            # 1件ごとにCSVへ追記（クラッシュ対策）
+            # Append to CSV per trial for safety
             with open(CSV_FILE, "a", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
                 writer.writerow([i, persona['type'], persona['desc']] + values)
 
-            print(f"Trial {i}/{N_TOTAL} ({persona['type']}): {values}")
+            print(f"Trial {i+1}/{N_TOTAL} ({persona['type']}): {values}")
             break
 
         except Exception as e:
-            print(f"Trial {i}: Error - {e}")
-            time.sleep(2)
+            error_msg = str(e)
+            if "429" in error_msg:
+                current_key_idx = (current_key_idx + 1) % len(API_KEYS)
+                print(f"Trial {i}: レート制限を検知。キーを切り替えます (Key Index: {current_key_idx})")
+                client = genai.Client(api_key=API_KEYS[current_key_idx])
+                time.sleep(5) # 切り替え後少し待機
+            else:
+                print(f"Trial {i}: Error - {e}")
+                attempts += 1
+                time.sleep(2)
             continue
+    else:
+        print(f"Trial {i}: Failed after {max_retries} attempts. Skipping.")
+
+# グラフ生成のために全データをCSVから読み込み直す
+if os.path.exists(CSV_FILE):
+    with open(CSV_FILE, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        next(reader) # header
+        results = [list(map(int, row[3:])) for row in reader]
 
 if results:
     num_questions = 19
@@ -189,7 +217,7 @@ if results:
         vals = [dist[k] for k in keys]
         plt.figure()
         plt.bar(keys, vals)
-        plt.title(f"Question {i+1} (N=500 with Personas)")
+        plt.title(f"Question {i+1} (N={len(results)} with Personas)")
         plt.xlabel("Rating (0-10)")
         plt.ylabel("Frequency")
         plt.xticks(range(0, 11))

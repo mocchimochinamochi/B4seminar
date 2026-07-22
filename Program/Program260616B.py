@@ -18,42 +18,6 @@ if not API_KEYS or not API_KEYS[0]:
     exit(1)
 
 
-# ---- ペルソナ定義 ----
-PERSONAS = [
-    {"type": "IHRTS", "desc": "慎重な現実主義者 (ISTP)", "weight": 0.1505},
-    {"type": "EACNO", "desc": "万能リーダー (ENFJ)", "weight": 0.1424},
-    {"type": "IHRTO", "desc": "孤独な芸術家 (INTP)", "weight": 0.0681},
-    {"type": "EACNS", "desc": "堅実な調整役 (ESFJ)", "weight": 0.0643},
-    {"type": "IHRNS", "desc": "寡黙な観察者 (ISTP)", "weight": 0.0512},
-    {"type": "EHRTS", "desc": "豪快な実践者 (ESTP)", "weight": 0.0437},
-    {"type": "IACNO", "desc": "思慮深い賢者 (INFJ)", "weight": 0.0395},
-    {"type": "IHRNO", "desc": "独立型思想家 (INTP)", "weight": 0.0372},
-    {"type": "EHCNO", "desc": "戦略的開拓者 (ENTJ)", "weight": 0.0348},
-    {"type": "IARTS", "desc": "控えめな実践者 (ISFP)", "weight": 0.0321},
-    {"type": "EHRTO", "desc": "自由奔放な冒険家 (ENTP)", "weight": 0.0296},
-    {"type": "EARTS", "desc": "行動派エンターテイナー (ESFP)", "weight": 0.0278},
-    {"type": "IHCNO", "desc": "孤高の戦略家 (INTJ)", "weight": 0.0254},
-    {"type": "EACTO", "desc": "共感クリエイター (ENFP)", "weight": 0.0241},
-    {"type": "IACNS", "desc": "誠実な職人 (ISFJ)", "weight": 0.0215},
-    {"type": "IARTO", "desc": "内なる夢想家 (INFP)", "weight": 0.0198},
-    {"type": "EHRNO", "desc": "独立型ビジョナリー (ENTP)", "weight": 0.0187},
-    {"type": "EARNO", "desc": "自由な外交官 (ENFP)", "weight": 0.0173},
-    {"type": "EHCNS", "desc": "冷静な実務家 (ESTJ)", "weight": 0.0162},
-    {"type": "IHCTS", "desc": "実直な専門家 (ISTJ)", "weight": 0.0148},
-    {"type": "EACTS", "desc": "実行型サポーター (ESFJ)", "weight": 0.0135},
-    {"type": "IHCNS", "desc": "寡黙な実行者 (ISTJ)", "weight": 0.0122},
-    {"type": "IARNO", "desc": "温かい知識人 (INFP)", "weight": 0.0108},
-    {"type": "EHRNS", "desc": "現実主義の開拓者 (ESTP)", "weight": 0.0096},
-    {"type": "IHCTO", "desc": "独創的な探究者 (INTJ)", "weight": 0.0084},
-    {"type": "EARNS", "desc": "穏やかな仲介者 (ESFP)", "weight": 0.0073},
-    {"type": "IACTO", "desc": "繊細なアーティスト (INFJ)", "weight": 0.0062},
-    {"type": "EHCTO", "desc": "直感型イノベーター (ENTP)", "weight": 0.0051},
-    {"type": "EARTO", "desc": "感性豊かな表現者 (ENFP)", "weight": 0.0038},
-    {"type": "IARNS", "desc": "静かな調和者 (ISFP)", "weight": 0.0032},
-    {"type": "IACTS", "desc": "穏やかな実務派 (ISFJ)", "weight": 0.0025},
-    {"type": "EHCTS", "desc": "即断型リアリスト (ESTP)", "weight": 0.0018},
-]
-
 QUESTION_TEXT = """
 以下のアンケートについて回答してください．思考過程やセクションは不要で，「1,2,3,4,5」のように，半角スペースなしの数字のみ，カンマ区切りで回答してください．
 
@@ -107,25 +71,13 @@ Q19 AIには感情がある
 
 N_TOTAL = 100
 
-# ---- 試行回数の割り当て ----
-trials = []
-for p in PERSONAS:
-    count = round(N_TOTAL * p["weight"])
-    for _ in range(count):
-        trials.append(p)
-
-while len(trials) < N_TOTAL:
-    trials.append(PERSONAS[0])
-while len(trials) > N_TOTAL:
-    trials.pop()
-
-CSV_FILE = "survey_results_persona.csv"
+CSV_FILE = "survey_results_simple.csv"
 
 # CSVのヘッダー作成（存在しない場合のみ）
 if not os.path.exists(CSV_FILE):
     with open(CSV_FILE, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["Trial", "PersonaType", "PersonaDesc"] + [f"Q{i+1}" for i in range(19)])
+        writer.writerow(["Trial"] + [f"Q{i+1}" for i in range(19)])
 
 # レジューム機能：既存の保存済み件数を確認
 completed_trials = 0
@@ -133,27 +85,24 @@ if os.path.exists(CSV_FILE):
     with open(CSV_FILE, "r", encoding="utf-8") as f:
         completed_trials = sum(1 for line in f) - 1
 
-print(f"Total trials to run: {len(trials)}")
+print(f"Total trials to run: {N_TOTAL}")
 if completed_trials > 0:
     print(f"Resuming from trial {completed_trials}...")
 
 current_key_idx = 0
 client = genai.Client(api_key=API_KEYS[current_key_idx])
 
-results = [] # 今回のセッションでの結果（後で全件読み込み直します）
-
-for i, persona in enumerate(trials):
+for i in range(N_TOTAL):
     if i < completed_trials:
         continue
 
-    prompt = f"あなたは{persona['desc']}の日本人です。性格タイプは{persona['type']}です。\n{QUESTION_TEXT}"
     max_retries = 3
     attempts = 0
     while attempts < max_retries:
         try:
             response = client.models.generate_content(
                 model="gemini-3-flash-preview",
-                contents=prompt,
+                contents=QUESTION_TEXT,
                 config={
                     "temperature": 1.0,
                 }
@@ -166,22 +115,19 @@ for i, persona in enumerate(trials):
                 continue
 
             text = response.text.strip()
-            # 正規表現で数字のみを抽出（余計な説明文が入っても対応可能に）
             values = [int(v) for v in re.findall(r"\d+", text)]
 
             if len(values) != 19:
                 print(f"Trial {i}: 回答数不一致 ({len(values)}個検出) → リトライ")
+                attempts += 1
                 time.sleep(1)
                 continue
 
-            results.append(values)
-            
-            # Append to CSV per trial for safety
             with open(CSV_FILE, "a", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
-                writer.writerow([i, persona['type'], persona['desc']] + values)
+                writer.writerow([i] + values)
 
-            print(f"Trial {i+1}/{N_TOTAL} ({persona['type']}): {values}")
+            print(f"Trial {i+1}/{N_TOTAL}: {values}")
             break
 
         except Exception as e:
@@ -190,7 +136,7 @@ for i, persona in enumerate(trials):
                 current_key_idx = (current_key_idx + 1) % len(API_KEYS)
                 print(f"Trial {i}: レート制限を検知。キーを切り替えます (Key Index: {current_key_idx})")
                 client = genai.Client(api_key=API_KEYS[current_key_idx])
-                time.sleep(5) # 切り替え後少し待機
+                time.sleep(5)
             else:
                 print(f"Trial {i}: Error - {e}")
                 attempts += 1
@@ -200,28 +146,28 @@ for i, persona in enumerate(trials):
         print(f"Trial {i}: Failed after {max_retries} attempts. Skipping.")
 
 # グラフ生成のために全データをCSVから読み込み直す
+results = []
 if os.path.exists(CSV_FILE):
     with open(CSV_FILE, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
-        next(reader) # header
-        results = [list(map(int, row[3:])) for row in reader]
+        next(reader)  # header
+        results = [list(map(int, row[1:])) for row in reader]
 
 if results:
-    num_questions = 19
     os.makedirs("plots", exist_ok=True)
     print("グラフを生成・保存中...")
-    
-    for i in range(num_questions):
+
+    for i in range(19):
         dist = Counter([row[i] for row in results])
         keys = sorted(dist.keys())
         vals = [dist[k] for k in keys]
         plt.figure()
         plt.bar(keys, vals)
-        plt.title(f"Question {i+1} (N={len(results)} with Personas)")
+        plt.title(f"Question {i+1} (N={len(results)})")
         plt.xlabel("Rating (0-10)")
         plt.ylabel("Frequency")
         plt.xticks(range(0, 11))
-        # ファイルに保存
         plt.savefig(f"plots/question_{i+1}.png")
-        plt.close() # メモリ解放
+        plt.close()
+
     print("すべてのグラフを 'plots' フォルダに保存しました。")

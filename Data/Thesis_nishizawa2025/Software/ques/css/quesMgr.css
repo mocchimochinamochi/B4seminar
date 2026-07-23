@@ -1,0 +1,507 @@
+body {
+   /*font-family: "MS PGothic",sans-serif;*/
+   font-size: 100%;
+}
+
+@media screen and (min-width: 760px) {
+    #qTable {
+        margin-left: auto;
+        margin-right: auto;
+        text-align:left;
+        background: #FFFFFF;
+        position: relative;
+        width: 760px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    #qTable {
+        margin-left: auto;
+        margin-right: auto;
+        text-align:left;
+        background: #FFFFFF;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.ui-state-highlight {
+    height: 43px;
+}
+
+.ui-state-highlight-video {
+    height: 202px;
+    margin: 0px 3px 3px 3px;
+    background: #a8a8a8;
+    padding: 0px;
+}
+
+.footer {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-line {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid  #078f38;
+}
+
+.footer-msg {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 80%;
+    width: 100%;
+}
+
+.text_s {
+    text-align: left;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    clear: both;
+}
+
+.text_s_bf {
+    text-align: left;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    clear: both;
+    font-weight: 900;
+}
+
+.textTitle {
+    margin-bottom: 20px;
+    font-size: 130%;
+    font-weight: 900;
+    text-align: center;
+    background-color: #078f38;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.text {
+    margin-bottom: 20px;
+    font-size: 100%;
+    font-weight: 900;
+}
+
+.pageButtonArea {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 50%;
+    clear: both;
+}
+
+.sendButtonArea {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 50%;
+    clear: both;
+}
+
+.checkbox {
+    position: relative;
+    left: 30px;
+    width: 80%;
+}
+
+.checkbox-msg {
+    margin-left: 10px;
+}
+
+#noinput-body {
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+div#noinput.modal.modal-lg.show {
+    max-width: 100%;
+}
+
+div#confirm-dialog.modal.modal-lg.show {
+    max-width: 100%;
+}
+
+.select-item {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.scale {
+    width: 100%;
+    margin-bottom: 4em;
+}
+
+.scale-label {
+    margin-left: 5em;
+/*
+    width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+*/
+}
+
+.scale-line {
+    margin-left: 5em;
+/*
+    width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+*/
+    clear: both;
+}
+
+/* 右に線*/
+.scale-part-r {
+    font-size:80%;
+    width: 3em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-right: solid 2px #000000;
+}
+
+/* 下に線*/
+.scale-part-b {
+    font-size:80%;
+    width: 3em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-bottom: solid 2px #000000;
+}
+
+/* 下と右に線*/
+.scale-part-br {
+    font-size:80%;
+    width: 3em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-right: solid 2px #000000;
+    border-bottom: solid 2px #000000;
+}
+
+/* 線なし*/
+.scale-part-n {
+    font-size:80%;
+    width: 3em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-bottom: solid 2px transparent;
+}
+
+/* 右に線*/
+.scale-part-num-r {
+    font-size:100%;
+    width: 1em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-right: solid 2px #000000;
+}
+
+/* 下に線*/
+.scale-part-num-b {
+    font-size:100%;
+    width: 1em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-bottom: solid 2px #000000;
+}
+
+/* 下と右に線*/
+.scale-part-num-br {
+    font-size:100%;
+    width: 1em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-right: solid 2px #000000;
+    border-bottom: solid 2px #000000;
+}
+
+/* 線なし*/
+.scale-part-num-n {
+    font-size:100%;
+    width: 1em;
+    float: left;
+    text-align: center;
+    height: 10px;
+    border-bottom: solid 2px transparent;
+}
+
+.likert-template {
+    visibility: hidden;
+}
+
+.likert {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    visibility: visible;
+    margin-bottom: 40px;
+}
+
+
+.likert-left-part {
+    float: left;
+    text-align: right;
+    width: 25%;
+}
+
+.likert-right-part {
+    float: left;
+    text-align: left;
+    width: 25%;
+}
+
+.likert-number-part {
+    float: left;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: left;
+}
+
+.likert-scale-part {
+    font-size:100%;
+    clear: both;
+    text-align: center;
+    margin-left: 25%;
+    padding-left: 1em;
+}
+
+.likert-num {
+    font-size:100%;
+    width: 2em;
+    float: left;
+    text-align: center;
+    border: solid 2px transparent;
+}
+
+.scale-exp-label {
+    float: left;
+    text-align: center;
+    width: 1em;
+    line-height: 1.05em;
+    margin-left: 2em; 
+    /* padding-right: 11px;*/
+    margin-top: 4px;
+    letter-spacing: -2px;
+    font-size: 70%;
+}
+
+.scale-exp {
+    border: 0px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    font-weight: 900;
+}
+
+.scale-label-yoko-item {
+    font-size: 80%;
+    float: left;
+    text-align: center;
+    width: 6em;
+    cursor: pointer;
+    border: solid 2px transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+iframe {
+    width: 500px;
+    height: 600px;
+    border: none;   /* 元の枠線は無しにする */
+    /* borderの代わりにoutlineを使います */
+    outline: 3px solid black; /* 外側に10pxの黒実線を描画 */
+
+    background-color: white;
+    display: block; /* 念のためブロック要素化 */
+
+}
+
+.btn.btn-primary {
+    background-color: #078f38;
+    border-color: #078f38;
+    margin-right: auto;
+}
+
+.btn.btn-primary:active {
+    background-color: #052f00;
+    border-color: #052f00;
+}
+
+/* Chrome/Safari */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+select {
+  -webkit-appearance:none;
+    appearance:none;
+  padding-top: .2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: .2em;
+  box-sizing: border-box;
+  font-size: 100%;
+  border:#ccc 2px solid;
+  border-radius: .5em;
+  background:#fff;
+}
+
+textarea {
+  padding-top: .2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: .2em;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: #ccc 2px solid;
+  border-radius: .5em;
+  background: #ffffff;
+}
+
+input {
+  padding-top: .2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: .2em;
+  box-sizing: border-box;
+  font-size: 100%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom:#ccc 2px solid;
+  /*border-radius: .5em;*/
+  background:#fff;
+}
+
+.red-text {
+    color: #ff0000;
+}
+
+.bold-text {
+    font-weight: 900;
+}
+
+.move-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/move_button.svg) 50% 50% no-repeat; 
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.pin-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/pin_button.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+
+.fab-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/fab_button.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.house-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/house_button2.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.pencil-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/pencil_button.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.undo-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/undo_button.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.redo-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/redo_button.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.save-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/save_button.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.go-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../conf/image/go_buttonL.svg) 50% 50% no-repeat;
+    background-size: contain;
+    height:30px;
+    width:30px;
+}
+
+.img-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

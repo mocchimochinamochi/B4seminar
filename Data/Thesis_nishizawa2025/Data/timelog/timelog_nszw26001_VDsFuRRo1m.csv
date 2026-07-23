@@ -1,0 +1,20 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 11.392, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 7.047, Send Message Pressed, Scenario:0, Step:1
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 9.565, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 6.012, Send Message Pressed, Scenario:0, Step:3
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 15.366, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 4.861, Send Message Pressed, Scenario:0, Step:5
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 8.904, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 3.898, Send Message Pressed, Scenario:0, Step:7
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 7.932, Next Pressed, Scenario:0, Step:9
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 5.126, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 5.118, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 3.932, Send Message Pressed, Scenario:1, Step:1
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 11.966, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 3.607, Send Message Pressed, Scenario:1, Step:3
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 10.332, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 3.399, Send Message Pressed, Scenario:1, Step:5
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 12.482, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 5.805, Send Message Pressed, Scenario:1, Step:7
+nszw26001_VDsFuRRo1m,2026-01-28_00-05-45,2026-01-28_00-15-41,ItoI_noname, 10.393, Next Pressed, Scenario:1, Step:9

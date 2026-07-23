@@ -1,0 +1,22 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 5.564, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 6.661, Send Message Pressed, Scenario:0, Step:1
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 31.567, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 7.569, Send Message Pressed, Scenario:0, Step:3
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 14.345, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 5.433, Send Message Pressed, Scenario:0, Step:5
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 8.213, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 3.820, Send Message Pressed, Scenario:0, Step:7
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 8.599, Next Pressed, Scenario:0, Step:9
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 3.682, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 4.605, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 3.203, Send Message Pressed, Scenario:1, Step:1
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 9.550, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 2.977, Send Message Pressed, Scenario:1, Step:3
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 8.092, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 3.890, Send Message Pressed, Scenario:1, Step:5
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 6.935, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 2.749, Send Message Pressed, Scenario:1, Step:7
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 5.800, Next Pressed, Scenario:1, Step:9
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,ItoI_noname, 0.175, End/Reset Pressed, Scenario:1, Step:9
+nszw26001_Xn74rUowwJ,2026-01-27_20-02-34,2026-01-27_20-08-41,System, Reset Performed, -, -

@@ -1,0 +1,22 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 17.470, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 5.443, Send Message Pressed, Scenario:0, Step:1
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 22.823, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 8.663, Send Message Pressed, Scenario:0, Step:3
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 14.233, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 8.171, Send Message Pressed, Scenario:0, Step:5
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 10.439, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 4.800, Send Message Pressed, Scenario:0, Step:7
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 10.444, Next Pressed, Scenario:0, Step:9
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 5.244, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 6.692, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 6.275, Send Message Pressed, Scenario:1, Step:1
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 13.363, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 5.142, Send Message Pressed, Scenario:1, Step:3
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 9.880, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 3.880, Send Message Pressed, Scenario:1, Step:5
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 18.184, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 6.696, Send Message Pressed, Scenario:1, Step:7
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 9.579, Next Pressed, Scenario:1, Step:9
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,ItoE_noname, 0.275, End/Reset Pressed, Scenario:1, Step:9
+nszw26001_TOPRFdtOo6,2026-01-27_20-03-19,2026-01-27_20-14-14,System, Reset Performed, -, -

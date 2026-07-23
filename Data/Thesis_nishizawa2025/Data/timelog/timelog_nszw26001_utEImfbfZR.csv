@@ -1,0 +1,20 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 9.708, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 5.601, Send Message Pressed, Scenario:0, Step:1
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 11.900, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 14.111, Send Message Pressed, Scenario:0, Step:3
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 8.342, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 5.209, Send Message Pressed, Scenario:0, Step:5
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 7.145, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 4.034, Send Message Pressed, Scenario:0, Step:7
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 11.302, Next Pressed, Scenario:0, Step:9
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 17.242, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 4.039, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 6.049, Send Message Pressed, Scenario:1, Step:1
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 22.655, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 3.490, Send Message Pressed, Scenario:1, Step:3
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 8.202, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 3.934, Send Message Pressed, Scenario:1, Step:5
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 7.496, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 6.063, Send Message Pressed, Scenario:1, Step:7
+nszw26001_utEImfbfZR,2026-01-27_20-02-37,2026-01-27_20-08-10,ItoE_name, 10.229, Next Pressed, Scenario:1, Step:9

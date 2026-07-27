@@ -1,3 +1,4 @@
+# 7/22 夜の加野，吉岡の話し合いではこれが最新プログラムで実行確認済み
 import time
 import os
 import re

@@ -1,0 +1,20 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 15.525, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 16.834, Send Message Pressed, Scenario:0, Step:1
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 40.122, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 10.611, Send Message Pressed, Scenario:0, Step:3
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 21.496, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 7.591, Send Message Pressed, Scenario:0, Step:5
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 10.509, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 4.511, Send Message Pressed, Scenario:0, Step:7
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 7.702, Next Pressed, Scenario:0, Step:9
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 19.507, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 13.147, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 7.226, Send Message Pressed, Scenario:1, Step:1
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 9.287, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 7.983, Send Message Pressed, Scenario:1, Step:3
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 10.413, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 3.827, Send Message Pressed, Scenario:1, Step:5
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 9.042, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 10.012, Send Message Pressed, Scenario:1, Step:7
+nszw26001_HGZj19V8gq,2026-01-28_00-36-53,2026-01-28_00-52-56,ItoE_noname, 10.831, Next Pressed, Scenario:1, Step:9

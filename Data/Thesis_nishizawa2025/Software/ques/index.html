@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<!-- ユーザエージェントを取得し，パソコンからのアクセスに限定する -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ua = navigator.userAgent.toLowerCase(); //ユーザーエージェント文字列を取得（小文字化）
+    const isSmartPhone = //スマートフォンかどうかを判定
+        ua.indexOf('iphone') !== -1 ||
+        (ua.indexOf('android') !== -1 && ua.indexOf('mobile') !== -1) ||
+        ua.indexOf('ipad') !== -1;
+
+    if (isSmartPhone) { //スマートフォンからのアクセスだった場合
+        document.body.innerHTML = `
+             <style>
+                .pc-only-message {
+                    text-align: left; /* 左揃え */
+                    font-family: sans-serif; /* ゴシック体 */
+                    margin-top: 10vh; /* 画面高さの10%下に配置 */
+                    padding: 0 5vw; /* 左右に画面幅の5%の余白 */
+                }
+                .pc-only-message h2 { /* 見出しの文字サイズを画面幅に応じて可変に */
+                    font-size: clamp(20px, 5vw, 32px);
+                }
+                .pc-only-message p { /* 本文の文字サイズを画面幅に応じて可変に */
+                    font-size: clamp(14px, 4vw, 18px);
+                    line-height: 1.6; /* 行間を広めにして読みやすく */
+                }
+            </style>
+            <!-- 実際に表示するメッセージ -->
+            <div class="pc-only-message">
+                <h2>本アンケートはPC専用です</h2>
+                <p>
+                    本アンケートはパソコン専用です．<br>
+                    ブラウザは Google Chrome，Firefox，Microsoft Edge のいずれかの最新版をご利用ください．<br><br>
+                    スマートフォンやタブレット端末，上記以外のブラウザなどからアクセスした場合，<br>
+                    一見正常に見えても，正しく回答が記録されないためポイント付与できません．<br>
+                    必ずパソコンのブラウザからアクセスしてください．
+                </p>
+            </div>
+        `;
+        // 以降のJavaScript処理（アンケート本体）を強制停止
+        throw new Error("Mobile access blocked");
+    }
+});
+</script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" /> 
+<title>Web Image Map Ques</title>
+<link rel="stylesheet" href="css/jquery-ui.min.css" >
+<link rel="stylesheet" href="css/jplayer-audio.css" >
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/quesMgr.css" />
+<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+<script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="jplayer/jquery.jplayer.min.js"></script>
+<script src="js/swfobject.js"></script>
+<script src="js/jwplayer.js"></script>
+<script src="js/quesMgr.js"></script>
+<!-- <script src="js/quesMgr.min.js"></script> -->
+</head>
+    
+<body onload='quesMgr.load()'>
+<div id="qTable">
+IEには対応していません．最新版のChromeかFirefox, Edgeをご使用ください．<br>
+This page does not support IE. Please use the latest version of Chrome, Firefox or Edge.<br>
+</div>
+<div id="dialogEmp" title="未入力項目"></div>
+<div id="dialogCnf" title="最終確認"></div>
+<div class="footer"></div>
+
+<div class="modal modal-lg" id="noinput" tabindex="-1" role="dialog" aria-labelledby="actions" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="noinput-title">未入力の項目</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="noinput-body">
+          未入力の項目があります．
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="noinput-back">戻る</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-lg" id="confirm-dialog" tabindex="-1" role="dialog" aria-labelledby="actions" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirm-title">確認</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="confirm-body" class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button id="confirm-back" type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+        <button id="confirm-forward" type="button" class="btn btn-primary">進む</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="likert-template">
+    <div class="likert-left-part"></div>
+    <div class="likert-number-part"></div>
+    <div class="likert-right-part"></div>
+    <div class="likert-scale-part"></div>
+</div>
+
+</body>
+</html>

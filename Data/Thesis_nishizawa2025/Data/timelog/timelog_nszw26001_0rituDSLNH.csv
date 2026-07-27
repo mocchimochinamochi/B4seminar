@@ -1,0 +1,20 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 15.468, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.286, Send Message Pressed, Scenario:0, Step:1
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 5.107, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 3.024, Send Message Pressed, Scenario:0, Step:3
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 3.456, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.187, Send Message Pressed, Scenario:0, Step:5
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.511, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.409, Send Message Pressed, Scenario:0, Step:7
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 4.674, Next Pressed, Scenario:0, Step:9
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.844, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 3.339, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.458, Send Message Pressed, Scenario:1, Step:1
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.649, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.063, Send Message Pressed, Scenario:1, Step:3
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.544, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.219, Send Message Pressed, Scenario:1, Step:5
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 4.187, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.600, Send Message Pressed, Scenario:1, Step:7
+nszw26001_0rituDSLNH,2026-01-27_20-07-11,2026-01-27_20-10-11,ItoE_noname, 2.676, Next Pressed, Scenario:1, Step:9

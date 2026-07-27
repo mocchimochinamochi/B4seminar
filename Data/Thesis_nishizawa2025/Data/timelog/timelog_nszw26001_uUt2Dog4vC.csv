@@ -1,0 +1,20 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 6.634, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 5.879, Send Message Pressed, Scenario:0, Step:1
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 6.831, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 4.573, Send Message Pressed, Scenario:0, Step:3
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 7.480, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 5.715, Send Message Pressed, Scenario:0, Step:5
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 5.669, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 2.950, Send Message Pressed, Scenario:0, Step:7
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 6.084, Next Pressed, Scenario:0, Step:9
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 4.766, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 5.635, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 2.609, Send Message Pressed, Scenario:1, Step:1
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 3.615, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 3.527, Send Message Pressed, Scenario:1, Step:3
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 6.130, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 4.205, Send Message Pressed, Scenario:1, Step:5
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 4.776, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 3.967, Send Message Pressed, Scenario:1, Step:7
+nszw26001_uUt2Dog4vC,2026-01-27_20-05-58,2026-01-27_20-11-22,ItoE_noname, 3.558, Next Pressed, Scenario:1, Step:9

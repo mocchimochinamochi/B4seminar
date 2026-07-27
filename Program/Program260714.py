@@ -156,12 +156,14 @@ def parse_args():
     p.add_argument("--invert-demographics", action="store_true", help="年齢/性別の割合を逆にする（年齢分布を反転、性別比は1-xにする）")
     p.add_argument("--seed", type=int, default=None, help="ランダムシード（省略で毎回異なる）")
     p.add_argument("--male-ratio", type=float, default=DEFAULT_MALE_RATIO, help="男性の割合（0-1）: デフォルト0.5")
+    p.add_argument("--requests-per-session", type=int, default=1, help="何回の試行ごとに新規セッション（クライアント再作成）するか（例:100）")
     return p.parse_args()
 
 args = parse_args()
 if args.seed is not None:
     random.seed(args.seed)
-
+# 同じセッションを何試行使うか（最低1）
+REQUESTS_PER_SESSION = max(1, int(args.requests_per_session))
 # ---- 試行回数の割り当て ----
 trials = []
 for p in PERSONAS:
@@ -232,8 +234,22 @@ print(f"Total trials to run: {len(trials)}")
 if completed_trials > 0:
     print(f"Resuming from trial {completed_trials}...")
 
+# 初期化: クライアントはセッション単位で再作成する
 current_key_idx = 0
-client = genai.Client(api_key=API_KEYS[current_key_idx])
+client = None
+
+# セッションに対応するAPIキーのインデックス列を事前生成してシャッフル
+# セッション数 = 試行数 / REQUESTS_PER_SESSION の切り上げ
+num_sessions = (N_TOTAL + REQUESTS_PER_SESSION - 1) // REQUESTS_PER_SESSION
+key_indices = (list(range(len(API_KEYS))) * ((num_sessions // len(API_KEYS)) + 1))[:num_sessions]
+# 再現性あるシャッフルを行う（seed が指定されていれば使用）
+if args.seed is not None:
+    rng = random.Random(args.seed)
+    rng.shuffle(key_indices)
+else:
+    random.shuffle(key_indices)
+
+key_sequence = key_indices  # 長さ = num_sessions
 
 results = [] # 今回のセッションでの結果（後で全件読み込み直します）
 
@@ -244,6 +260,18 @@ for i, persona in enumerate(trials):
     # 年齢・性別を割り当て
     age = age_list[i]
     gender = gender_list[i]
+
+    # セッション切替: 指定回数ごとにクライアントを再作成（過去のコンテキストの影響を避ける）
+    session_idx = (i // REQUESTS_PER_SESSION)
+    current_key_idx = key_sequence[session_idx]
+    # 既存クライアントがあれば閉じてから新規作成
+    if client is not None:
+        try:
+            client.close()
+        except Exception:
+            pass
+    client = genai.Client(api_key=API_KEYS[current_key_idx])
+    print(f"Trial {i}: using API key index {current_key_idx} (session {session_idx})")
 
     prompt = f"あなたは{persona['desc']}の日本人です。性格タイプは{persona['type']}です。年齢は{age}、性別は{gender}です。\n{QUESTION_TEXT}"
     max_retries = 3
@@ -288,6 +316,12 @@ for i, persona in enumerate(trials):
             if "429" in error_msg:
                 current_key_idx = (current_key_idx + 1) % len(API_KEYS)
                 print(f"Trial {i}: レート制限を検知。キーを切り替えます (Key Index: {current_key_idx})")
+                # 古いクライアントを閉じて新しいキーでクライアントを作成
+                if client is not None:
+                    try:
+                        client.close()
+                    except Exception:
+                        pass
                 client = genai.Client(api_key=API_KEYS[current_key_idx])
                 time.sleep(5) # 切り替え後少し待機
             else:
@@ -297,6 +331,14 @@ for i, persona in enumerate(trials):
             continue
     else:
         print(f"Trial {i}: Failed after {max_retries} attempts. Skipping.")
+
+    # この試行で使ったクライアントは明示的に閉じる（セッション分離のため）
+    if client is not None:
+        try:
+            client.close()
+        except Exception:
+            pass
+        client = None
 
 # グラフ生成のために全データをCSVから読み込み直す
 if os.path.exists(CSV_FILE):

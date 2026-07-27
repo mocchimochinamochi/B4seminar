@@ -1,0 +1,159 @@
+\documentclass[a4paper,10pt,twocolumn]{myjarticle2}
+
+\usepackage{color}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{multirow}
+\usepackage{url}
+
+
+\pagestyle{empty}
+
+\setlength{\topmargin}{6mm}
+\setlength{\oddsidemargin}{-4mm}
+\setlength{\evensidemargin}{-4mm}
+\setlength{\textwidth}{170mm}
+\setlength{\headsep}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\textheight}{235mm}
+\setlength{\columnsep}{5mm}
+
+\begin{document}
+\include{header}
+\twocolumn[%
+\vspace{-20mm}
+\begin{center}
+{\LARGE\bf LLMのセッションリセットに伴う人格切り替えが\\ユーザの印象に与える影響}
+\vspace{2mm}\par\noindent
+{\large
+The Impact of Personality Switching Due to LLM Session Resets on User Perception}
+\vspace{2mm}\par\noindent
+{\large
+\begin{tabular}{ccc}
+$\bigcirc$ 西澤　奏都$^{1}$， & 吉原　一成$^{1}$ & 小林　一樹$^{1}$\\
+$\bigcirc$ Kanato Nishizawa$^{1}$, & Kazunari Yoshiwara$^{1}$, & Kazuki Kobayashi$^{1}$\\
+\multicolumn{3}{c}{$^{1}$信州大学}                                                    \\
+\multicolumn{3}{c}{$^{1}$Shinshu University}                  \\
+%\multicolumn{3}{c}{$^{2}$信州大学 社会基盤研究所}                                                \\
+%\multicolumn{3}{c}{$^{2}$Research Center for Social Systems, Shinshu University}      \\
+%\multicolumn{3}{c}{$^{3}$信州大学 学術研究院 工学系}                                                  \\
+%\multicolumn{3}{c}{$^{3}$Academic Assembly, Shinshu University}                       \\
+\end{tabular}
+}\vspace{2mm}\par\noindent
+\begin{minipage}{150mm}
+{\small
+%{\bf Abstract:}
+%%%%% 英文アブストラクト %%%%%
+%This study investigates the impact of personality switching during session resets on user impressions of agents in dialogues with large language models (LLMs). In LLM interactions, when an LLM produces outputs that fail to meet user expectations, it can cause user dissatisfaction and lead to distrust in the agent. While research has focused on improving response performance itself, little investigation exists into methods for recovering from a state of distrust. Our proposed method addresses distrust by changing the LLM's personality at the moment a conversation stalls, the desired response is not obtained, and a new conversation is initiated. In experiments, we prepared two distinct personalities, A and B, for the LLM. We investigated users' impressions of the agent when switching the LLM's personality versus not switching it, specifically when users' conversational satisfaction declined and a new conversation was started.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent
+}
+\end{minipage} \par\noindent
+\end{center}
+]
+\section{はじめに}
+大規模言語モデル（LLM）は，対話型AIや教育，医療，カスタマーサポートなど，多岐にわたる応用が展開されているが，ユーザの期待に沿わない出力がエージェントに対する信頼を低下させる問題が指摘されている\cite{Kim2024}．
+
+この問題に対し，現在提供されている多くのLLMサービスでは，謝罪を行う機能が実装されており，エラー時に回答の確信度スコアや状況説明を提示したり，修正可能な一時的なミスとして説明する手法も提案されている\cite{Martell2025}．また，ロボットがタスク失敗時に謝罪や否認，約束を実行する手法\cite{Esterwood2023}もある．しかし，これらの手法では，不信感の解決には，ユーザの期待に繰り返し応える必要があり，根本的な解決が難しい問題がある．
+
+%また，ユーザのエージェントに対する印象に影響を与える手法として，LLMに人格を付与するアプローチがある\cite{文献4}．Kroczekら\cite{Kroczek2025}は外交的な人格は内向的な人格と比較して，ポジティブな印象をユーザに与えることを報告しており，対話中の人格切り替え手法 \cite{文献5}を用いて，内向的な人格から外交的な人格に切り替えることで，ユーザのエージェントに対する不信感の回復につながる可能性がある．
+
+%また，\textcolor{red}{ユーザのエージェントに対する印象に影響を与える手法として，LLMに人格を付与するアプローチがある\cite{文献4}．Kroczekら\cite{Kroczek2025}はエージェントに付与する人格において，外交的な人格は内向的な人格と比較して，ポジティブな印象をユーザに与えることを報告している．また，Schreiberら\cite{文献5}はLLM に複数の人格を付与し，対話中に人格を切り替える手法を提案している．これらの知見から，対話中に内向的な人格から外交的な人格に切り替えることで，ユーザのエージェントに対する不信感の回復につながる可能性がある．}
+
+そこで本研究では，LLMとの対話におけるセッションリセットに伴うLLMの人格切り替えシステムを提案する．提案手法では，LLMに異なる人格を付与し，ユーザが期待する回答が得られず対話に行き詰まり，新しい対話を開始するタイミングでLLMの人格を変更する．これにより，不信感を抱いた対象を切り替え，心理的抵抗感なくタスク依頼を継続できると期待される．
+
+\section{LLM人格切替システム}
+一般に，LLMを用いた対話システムでは，ユーザが対話のトピックを切り替えたい場合や，期待する回答が得られないと感じた場合に，セッションリセットを実施する．セッションリセットとは，蓄積された対話履歴を破棄し，対話を初期状態に戻す操作を指す．
+
+そこで提案手法では，図\ref{fig:summary_image}に示すように複数の異なる人格をLLMに付与し，ユーザがLLMとの対話において，期待する回答が得られないことから行き詰まり，新しい対話を開始するタイミングでLLMの人格を変更する．
+エージェントの人格特性の操作はユーザの行動やエージェントの印象に強く影響することが報告されおり\cite{Kroczek2025}，LLMの人格設定がユーザの満足度を高めることも報告されている\cite{Schreiber2024}．提案手法では，これらの知見を応用し，セッションリセットに人格切り替えを同期させることで，ユーザの不信感を解消し，満足度を高めることをめざす．
+
+
+
+\begin{figure}
+\centering 
+    \includegraphics[width=1.0\linewidth]{summary.pdf} % 画像を挿入
+    \caption{人格切り替えシステムの概要} 
+    \label{fig:summary_image} 
+\end{figure}
+
+本研究では，LLMに付与する人格としてMyers–Briggs Type Indicator (MBTI)を用いる．MBTIは人格特性を構成する4つの要素がそれぞれ対極の関係にある2つの性質を持ち\cite{Radisavljević2022}，どちらかが採用されることで16パターンの人格を構成する．そのため，人格を切り替える際に対話時の口調や言葉遣いに明確な変化が生じることが期待される．
+
+\section{実験方法}
+LLMとの対話において，セッションリセットに伴う人格切り替えがユーザのエージェントに対する印象に与える影響を調査する．
+
+\subsection{実験設定}
+実験では，ENFPとISTJの2つの人格を採用する．セッションリセットに伴うエージェントの人格の切り替えがユーザの印象に与える影響を調査するため，人格設定要因（1×3水準）による参加者間配置の実験計画を採用する．
+
+人格設定要因は，人格設定なし水準とISTJからENFPへの人格切り替え水準，ENFPからISTJへの人格切り替えの3水準で構成される．
+
+ISTJとは論理的で内向的な特性を持ち，ENFPとは感情的で外交的な特性を持つ．2つのMBTIの各特性は互いに対極の関係にあり，人格の切り替えに伴う対話時の口調や言葉遣いに明確な変化が生じると考えられるため，本実験ではISTJとENFPを採用した．
+
+%水準名が長い(ItoE，EtoIなどにする)
+
+\subsection{実験手順}
+LLMへの人格付与はGPT-5を用いる．ENFPとISTJを付与する方法はBestaら\cite{Besta2025}の研究を参考にして英文プロンプトを作成し，GPT-5の異なるセッションにおいて，それぞれの人格を付与した．
+
+参加者には，LLMとのチャットの様子を順次再現するシステムを用いて対話体験を提供する．システムの操作画面のイメージを図\ref{fig:chat_image}に示す．
+ユーザが送信ボタンを押すことで事前に設定されたプロンプトを送信し，対話を進行させる．
+
+\begin{figure}
+    \centering
+   \includegraphics[width=1.0\linewidth]{chat.pdf} % 画像を挿入
+    \caption{システム画面} % 図のキャプション
+   \label{fig:chat_image} % 参照用ラベル（例：図\ref{fig:chat_image}）
+\end{figure}
+
+提示する対話の内容は，LLMとの画像生成依頼に関する対話の様子とし，Gemini 2.5 Flash ImageとGPT-5の出力結果を用いて作成した．Gemini 2.5 Flash Imageは画像の出力と対話テキストの出力を得るために使用する．
+GPT-5はMBTI特性を付与する2つの水準の対話生成のために使用する．上記の出力した対話テキストを，指定するMBTI特性に沿った形式に変換するプロンプトを用い，その人格の特徴を口調や言葉遣いに反映させる．人格設定なし水準の対話にはGemini 2.5 Flash Imageの出力結果をそのまま用いる．これらの指示では出力結果を日本語にするため和文プロンプトを使用した．
+
+%GPT-5はMBTI条件においてGemini 2.5 Flash Imageが出力した対話テキストを，対象のMBTI特性の口調やスタイルに適用するために使用した．人格設定なし水準の対話にはGemini 2.5 Flash Imageの出力結果をそのまま用いる．
+
+%MBTI条件では，Gemini 2.5 Flash Imageの出力結果をベースに，対象のMBTI特性に沿った対話生成を指示するプロンプトを用い，MBTI特性を表現するようにLLMに口調やスタイルを適用する．
+
+%提示内容は，ユーザがエージェントに画像生成を指示し，エージェントの不備により要求が達成できず，ユーザが対話に行き詰まりセッションを切り替える場面とする．
+
+%参加者には対話の様子を順次再現するシステムを用いた対話の様子を視聴するように依頼し，終了後にアンケート調査を実施する．
+
+\subsection{評価指標}
+評価指標には，ユーザのエージェントへの印象に関する11段階のリッカートスケールによる19の質問項目を採用する．Q1からQ18の設問は，Fitrianie ら\cite{Fitrianie2020}が提案しているエージェントの一般的な印象を調査するための評価項目を利用した．日本語への翻訳には吉原ら\cite{Yoshiwara2023}の研究を参考とした．Q19の設問では，セッションリセットの際，エージェントの人格切り替えをどの程度知覚できたかを調査する．Q1からQ19の評価値を「あてはまらない」を1，「どちらでもない」を6，「あてはまる」を11とする．
+
+\section{まとめ}
+本研究では，セッションリセットに伴うLLMの人格切り替えシステムを提案した．提案手法では，LLMとの対話においてユーザの対話満足度が低下した際に人格を切り替えることで，ユーザのエージェントに対する不信感を解消する．今後，参加者実験を実施し，LLMとの対話においてユーザの対話満足度が低下した際，LLMの人格切り替えの有効性や特性を明らかにする．
+
+\footnotesize
+\begin{thebibliography}{99}
+\vspace{1zh}
+\bibitem{Kim2024}
+Yoonsu Kim, Jueon Lee, Seoyoung Kim, Jaehyuk Park, Juho Kim: Understanding users’ dissatisfaction with
+chatgpt responses:Types, resolving tactics, and the effect of knowledge level. IUI '24:International Conference on Intelligent User Interfaces, Vol.29, No. 24，pp. 385-404，2024.
+\bibitem{Martell2025}
+Max J. Martell, Jessica A. Baweja Brandon D. Dreslin: Mitigative Strategies for Recovering From Large Language Model Trust Violations, Journal of Cognitive Engineering and Decision Making, Vol. 19, No. 1, pp. 76-95, 2025
+\bibitem{Esterwood2023}
+Connor Esterwood，Lionel P. Robert: The theory of mind and human–robot trust repair, Scientific Reports, Vol. 13，No. 1, pp. 9877，2023.
+%\bibitem{wester2024}
+%Joel Wester, Sander de Jong, Henning Pohl, and Niels van Berkel: Exploring people's perceptions of LLM-generated advice, Computers in Human Behavior: Artificial Humans, Vol. 2, No. 100072, 2024.
+\bibitem{Kroczek2025}
+ Leon O.H. Kroczek，Alexander May，Selina Hettenkofer，Andreas Ruider， Bernd Ludwig Andreas Mühlberger: The influence of persona and conversational task on social interactions with a LLM-controlled embodied conversational agent,  Computers in Human Behavior, Vol. 172, No. 1，pp. 108759, 2025.
+\bibitem{Schreiber2024}
+William Schreiber, Jules White, Douglas C. Schmidt: Toward a Pattern Language for Persona-Based Interactions with LLMs. In Proceedings of 31st Conference on Pattern Languages of Programs, People, and Practices, PLoP 2024. Skamania Lodge, Columbia River Gorge, WA, USA. ACM, 2024. 
+\bibitem{Radisavljević2022}
+ Dušan Radisavljević，Bojan Batalo，Rafal Rzepka，Kenji Araki:Myers-Briggs Type Indicator and the Big Five Model - How Our Personality Affects Language Use, 2022 IEEE Asia-Pacific Conference on Computer Science and Data Engineering (CSDE), Gold Coast, Australia，pp. 1-6，2022. 
+\bibitem{Besta2025}
+Maciej Besta, Shriram Chandran, Robert Gerstenberger，Mathis Lindner，Marcin Chrapek, Sebastian Hermann Martschat，Taraneh Ghandi，Patrick Iff，Hubert Niewiadomski，Piotr Nyczyk，Jurgen Muller Torsten Hoefler: Psychologically Enhanced AI Agents, arXiv 2025, arXiv:2509.04343，2025. 
+%\bibitem{文献8}
+ %Christoph Bartneck，Dana Kulić，Elizabeth Croft，and Susana Zoghbi: Measurement instruments for the anthropomorphism,Animacy, likeability, perceived intelligence, and perceived safety of robots, Int. J. Social Robotics, Vol. 1, No. 1, pp. 71-81，2009．
+ \bibitem{Fitrianie2020}
+Siska Fitrianie, Merĳn Bruĳnes, Deborah Richards, Andrea B\"{o}nsch, Willem-Paul Brinkman: The 19 unifying questionnaire constructs of artificial social agents, Proceedings of the 20th ACM International Conference on Intelligent Virtual Agents, pp.1-8, 2020．
+ \bibitem{Yoshiwara2023}
+吉原 一成，小林 一樹: 家事ロボットの服装変化がユーザの印象に与える影響，知能と情報，Vol.35, No.4, pp.769-779, 2023
+\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%
+\vspace{-1mm}\par\noindent
+%%%%% 問合先 %%%%%
+%\subsection*{連絡先{  }}\noindent
+%\begin{tabular}{l}
+%信州大学 工学部 電子情報システム工学科 西澤 奏都\\
+%E-mail: {\tt  22t2114e@shinshu-u.ac.jp}
+%\end{tabular}
+%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,81 @@
+﻿ユーザーID,開始日時,終了日時,条件,経過時間(秒),イベント,シナリオID,ステップ数
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.180, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 10.588, Send Message Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 9.981, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.801, Send Message Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.621, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.659, Send Message Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.470, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.811, Send Message Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.225, Next Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.812, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.526, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.619, Send Message Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.173, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.298, Send Message Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.647, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.093, Send Message Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.694, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 8.153, Send Message Pressed, Scenario:1, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.882, Next Pressed, Scenario:1, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.465, End/Reset Pressed, Scenario:1, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,System, Reset Performed, -, -
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.455, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.137, Send Message Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 9.732, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.026, Send Message Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.827, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.392, Send Message Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.702, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.604, Send Message Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.984, Next Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.746, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.885, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.692, Send Message Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.910, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.949, Send Message Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 8.333, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.847, Send Message Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 9.624, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.439, Send Message Pressed, Scenario:1, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.509, Next Pressed, Scenario:1, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 7.741, End/Reset Pressed, Scenario:1, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,System, Reset Performed, -, -
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.036, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.005, Send Message Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 14.203, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 5.697, Send Message Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 9.558, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.199, Send Message Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.653, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.214, Send Message Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.488, Next Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.693, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 6.772, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.197, Send Message Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 10.455, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.514, Send Message Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.040, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.328, Send Message Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.559, Start Typing Pressed, Scenario:1, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.257, Send Message Pressed, Scenario:1, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.841, Next Pressed, Scenario:1, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.083, End/Reset Pressed, Scenario:1, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,System, Reset Performed, -, -
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.708, Start Typing Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.807, Send Message Pressed, Scenario:0, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.416, Start Typing Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 4.909, Send Message Pressed, Scenario:0, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.267, Start Typing Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.185, Send Message Pressed, Scenario:0, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.731, Start Typing Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 1.700, Send Message Pressed, Scenario:0, Step:7
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.118, Next Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.062, Create New Chat Pressed, Scenario:0, Step:9
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 3.360, Start Typing Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.157, Send Message Pressed, Scenario:1, Step:1
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 8.450, Start Typing Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 16.090, Send Message Pressed, Scenario:1, Step:3
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.320, Start Typing Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 1.807, Send Message Pressed, Scenario:1, Step:5
+nszw26001_PYj8LhXkES,2026-01-27_23-01-50,2026-01-27_23-11-14,ItoE_name, 2.292, Start Typing Pressed, Scenario:1, Step:7

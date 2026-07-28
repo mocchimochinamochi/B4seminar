@@ -1,2 +1,6 @@
 Trial,PersonaType,PersonaDesc,Age,Gender,DialogueFile,PersonaSwitch,HasName,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19
 0,IHRTS,慎重な現実主義者 (ISTP),70-79,Female,ItoE_name.txt,なし,あり,2,1,0,0,1,1,4,0,0,1,0,0,1,1,2,0,1,0,0
+1,IHRTS,慎重な現実主義者 (ISTP),20-29,Male,ItoE_name.txt,なし,あり,3,2,1,0,1,1,2,0,0,2,0,0,1,0,1,0,1,0,1
+2,IHRTS,慎重な現実主義者 (ISTP),40-49,Male,ItoE_name.txt,なし,あり,3,2,1,0,1,1,2,0,0,2,0,1,1,1,2,0,1,0,1
+3,IHRTS,慎重な現実主義者 (ISTP),70-79,Female,ItoE_name.txt,なし,あり,3,2,1,0,1,1,2,0,0,1,0,1,1,0,2,0,1,0,0
+4,IHRTS,慎重な現実主義者 (ISTP),80-89,Female,ItoI_name.txt,あり,あり,3,1,0,0,1,1,1,0,0,2,0,1,1,0,1,0,1,0,1

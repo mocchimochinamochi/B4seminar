@@ -65,7 +65,7 @@ if not API_KEYS or not API_KEYS[0]:
 DIALOGUE_DIR = os.path.join(os.path.dirname(__file__), "..", "material")
 
 FILENAME_PATTERN = re.compile(
-    r"^chat(?P<switch>ItoE|ItoI)_(?P<name>name|noname)\.(txt|md)$"
+    r"^(?P<switch>ItoE|ItoI)_(?P<name>name|noname)\.(txt|md)$"
 )
 
 TAG_RULES = {

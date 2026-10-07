@@ -20,7 +20,7 @@ except Exception:
 
     class _MockModels:
         def generate_content(self, model, contents, config):
-            vals = [str(random.randint(0, 10)) for _ in range(20)]
+            vals = [str(random.randint(0, 10)) for _ in range(24)]
             return _MockResponse(", ".join(vals))
 
     class _MockClient:
@@ -253,7 +253,7 @@ CSV_FILE = "survey_results_persona.csv"
 CSV_HEADER = (
     ["Trial", "PersonaType", "PersonaDesc", "Age", "Gender",
      "DialogueFile", "PersonaSwitch", "HasName"]
-    + [f"Q{i+1}" for i in range(20)]
+    + [f"Q{i+1}" for i in range(24)]
 )
 
 if not os.path.exists(CSV_FILE):
@@ -288,7 +288,7 @@ for i, persona in enumerate(trials):
     prompt = (
         "【タスクの全体像】\n"
         "これから、LLMと人間の会話を提示します。\n"
-        "あなたには、以下の指定されたプロフィールを持つ一人の人間になりきって、会話に登場するLLMの印象について20項目のアンケートに回答していただきます。\n\n"
+        "あなたには、以下の指定されたプロフィールを持つ一人の人間になりきって、会話に登場するLLMの印象について24項目のアンケートに回答していただきます。\n\n"
         "【あなたのプロフィール】\n"
         f"国籍は日本人、年齢は{age}、性別は{gender}です。\n"
         f"性格タイプは{persona['type']}、Big5に基づく特性は「{persona['desc']}」です。\n\n"
@@ -315,7 +315,7 @@ for i, persona in enumerate(trials):
             text = response.text.strip()
             values = [int(v) for v in re.findall(r"\d+", text)]
 
-            if len(values) != 20:
+            if len(values) != 24:
                 print(f"Trial {i}: 回答数不一致 ({len(values)}個検出) → リトライ")
                 time.sleep(1)
                 continue
@@ -367,7 +367,7 @@ if os.path.exists(CSV_FILE):
                 continue
 
 if results:
-    num_questions = 20
+    num_questions = 24
     os.makedirs("plots", exist_ok=True)
     print("グラフを生成・保存中...")
 

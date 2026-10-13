@@ -39,6 +39,7 @@
 - 7月：結果のまとめ・スライド発表
 
 ## 6. 参考文献
+https://big5-basic.com/front/column/eacno
 https://big5-basic.com/front/column/survey-2026-vol1
 https://big5-basic.com/front/column/survey-2026-vol3-prefecture-ranking
 

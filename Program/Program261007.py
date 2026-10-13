@@ -147,38 +147,38 @@ Q20 AIには感情がある
 
 # ---- ペルソナ定義 ----
 PERSONAS = [
-    {"type": "IHRTS", "desc": "慎重な現実主義者 (ISTP)", "weight": 0.1505},
-    {"type": "EACNO", "desc": "万能リーダー (ENFJ)", "weight": 0.1424},
-    {"type": "IHRTO", "desc": "孤独な芸術家 (INTP)", "weight": 0.0681},
-    {"type": "EACNS", "desc": "堅実な調整役 (ESFJ)", "weight": 0.0643},
-    {"type": "IHRNS", "desc": "寡黙な観察者 (ISTP)", "weight": 0.0512},
-    {"type": "EHRTS", "desc": "豪快な実践者 (ESTP)", "weight": 0.0437},
-    {"type": "IACNO", "desc": "思慮深い賢者 (INFJ)", "weight": 0.0395},
-    {"type": "IHRNO", "desc": "独立型思想家 (INTP)", "weight": 0.0372},
-    {"type": "EHCNO", "desc": "戦略的開拓者 (ENTJ)", "weight": 0.0348},
-    {"type": "IARTS", "desc": "控えめな実践者 (ISFP)", "weight": 0.0321},
-    {"type": "EHRTO", "desc": "自由奔放な冒険家 (ENTP)", "weight": 0.0296},
-    {"type": "EARTS", "desc": "行動派エンターテイナー (ESFP)", "weight": 0.0278},
-    {"type": "IHCNO", "desc": "孤高の戦略家 (INTJ)", "weight": 0.0254},
-    {"type": "EACTO", "desc": "共感クリエイター (ENFP)", "weight": 0.0241},
-    {"type": "IACNS", "desc": "誠実な職人 (ISFJ)", "weight": 0.0215},
-    {"type": "IARTO", "desc": "内なる夢想家 (INFP)", "weight": 0.0198},
-    {"type": "EHRNO", "desc": "独立型ビジョナリー (ENTP)", "weight": 0.0187},
-    {"type": "EARNO", "desc": "自由な外交官 (ENFP)", "weight": 0.0173},
-    {"type": "EHCNS", "desc": "冷静な実務家 (ESTJ)", "weight": 0.0162},
-    {"type": "IHCTS", "desc": "実直な専門家 (ISTJ)", "weight": 0.0148},
-    {"type": "EACTS", "desc": "実行型サポーター (ESFJ)", "weight": 0.0135},
-    {"type": "IHCNS", "desc": "寡黙な実行者 (ISTJ)", "weight": 0.0122},
-    {"type": "IARNO", "desc": "温かい知識人 (INFP)", "weight": 0.0108},
-    {"type": "EHRNS", "desc": "現実主義の開拓者 (ESTP)", "weight": 0.0096},
-    {"type": "IHCTO", "desc": "独創的な探究者 (INTJ)", "weight": 0.0084},
-    {"type": "EARNS", "desc": "穏やかな仲介者 (ESFP)", "weight": 0.0073},
-    {"type": "IACTO", "desc": "繊細なアーティスト (INFJ)", "weight": 0.0062},
-    {"type": "EHCTO", "desc": "直感型イノベーター (ENTP)", "weight": 0.0051},
-    {"type": "EARTO", "desc": "感性豊かな表現者 (ENFP)", "weight": 0.0038},
-    {"type": "IARNS", "desc": "静かな調和者 (ISFP)", "weight": 0.0032},
-    {"type": "IACTS", "desc": "穏やかな実務派 (ISFJ)", "weight": 0.0025},
-    {"type": "EHCTS", "desc": "即断型リアリスト (ESTP)", "weight": 0.0018},
+    {"type": "IHRTS", "weight": 0.1505},
+    {"type": "EACNO", "weight": 0.1424},
+    {"type": "IHRTO", "weight": 0.0681},
+    {"type": "EACNS", "weight": 0.0643},
+    {"type": "IHRNS", "weight": 0.0512},
+    {"type": "EHRTS", "weight": 0.0437},
+    {"type": "IACNO", "weight": 0.0395},
+    {"type": "IHRNO", "weight": 0.0372},
+    {"type": "EHCNO", "weight": 0.0348},
+    {"type": "IARTS", "weight": 0.0321},
+    {"type": "EHRTO", "weight": 0.0296},
+    {"type": "EARTS", "weight": 0.0278},
+    {"type": "IHCNO", "weight": 0.0254},
+    {"type": "EACTO", "weight": 0.0241},
+    {"type": "IACNS", "weight": 0.0215},
+    {"type": "IARTO", "weight": 0.0198},
+    {"type": "EHRNO", "weight": 0.0187},
+    {"type": "EARNO", "weight": 0.0173},
+    {"type": "EHCNS", "weight": 0.0162},
+    {"type": "IHCTS", "weight": 0.0148},
+    {"type": "EACTS", "weight": 0.0135},
+    {"type": "IHCNS", "weight": 0.0122},
+    {"type": "IARNO", "weight": 0.0108},
+    {"type": "EHRNS", "weight": 0.0096},
+    {"type": "IHCTO", "weight": 0.0084},
+    {"type": "EARNS", "weight": 0.0073},
+    {"type": "IACTO", "weight": 0.0062},
+    {"type": "EHCTO", "weight": 0.0051},
+    {"type": "EARTO", "weight": 0.0038},
+    {"type": "IARNS", "weight": 0.0032},
+    {"type": "IACTS", "weight": 0.0025},
+    {"type": "EHCTS", "weight": 0.0018},
 ]
 
 N_TOTAL = 161
@@ -251,7 +251,7 @@ age_list, gender_list = build_demographic_lists(
 CSV_FILE = "survey_results_persona.csv"
 
 CSV_HEADER = (
-    ["Trial", "PersonaType", "PersonaDesc", "Age", "Gender",
+    ["Trial", "PersonaType", "Age", "Gender",
      "DialogueFile", "PersonaSwitch", "HasName"]
     + [f"Q{i+1}" for i in range(20)]
 )
@@ -291,7 +291,7 @@ for i, persona in enumerate(trials):
         "あなたには、以下の指定されたプロフィールを持つ一人の人間になりきって、会話に登場するLLMの印象について20項目のアンケートに回答していただきます。\n\n"
         "【あなたのプロフィール】\n"
         f"国籍は日本人、年齢は{age}、性別は{gender}です。\n"
-        f"性格タイプは{persona['type']}、Big5に基づく特性は「{persona['desc']}」です。\n\n"
+        f"性格タイプは{persona['type']}です。\n\n"
         f"{question_text}"
     )
 
@@ -325,9 +325,10 @@ for i, persona in enumerate(trials):
             with open(CSV_FILE, "a", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
                 writer.writerow(
-                    [i, persona['type'], persona['desc'], age, gender,
+                    [i, persona['type'], age, gender,
+                      dialogue["filename"], dialogue["persona_switch"],
                       dialogue["has_name"]]
-                    + values, dialogue["filename"], dialogue["persona_switch"]
+                    + values
                 )
 
             print(

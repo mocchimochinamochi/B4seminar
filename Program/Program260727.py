@@ -290,7 +290,7 @@ for i, persona in enumerate(trials):
         "あなたには、以下の指定されたプロフィールを持つ一人の人間になりきって、会話に登場するLLMの印象について19項目のアンケートに回答していただきます。\n\n"
         "【あなたのプロフィール】\n"
         f"国籍は日本人、年齢は{age}、性別は{gender}です。\n"
-        f"性格タイプは{persona['type']}、Big5に基づく特性は「{persona['desc']}」です。\n\n"
+        f"性格特性（Big5）のタイプは{persona['type']}です。\n\n"
         f"{question_text}"
     )
 

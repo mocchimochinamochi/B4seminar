@@ -303,7 +303,7 @@ for i, persona in enumerate(trials):
             response = client.models.generate_content(
                 model="gemini-3-flash-preview",
                 contents=prompt,
-                config={"temperature": 0.0},
+                config={"temperature": 0.5},
             )
 
             if not response.text:

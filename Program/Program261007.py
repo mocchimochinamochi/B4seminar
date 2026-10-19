@@ -69,7 +69,7 @@ FILENAME_PATTERN = re.compile(
 )
 
 TAG_RULES = {
-    "switch": {"ItoE": "なし", "ItoI": "あり"},   # 人格切り替え
+    "switch": {"ItoE": "あり", "ItoI": "なし"},   # 人格切り替え
     "name":   {"name": "あり", "noname": "なし"},  # 名前の有無
 }
 
@@ -303,7 +303,7 @@ for i, persona in enumerate(trials):
             response = client.models.generate_content(
                 model="gemini-3-flash-preview",
                 contents=prompt,
-                config={"temperature": 0.5},
+                config={"temperature": 1.0},
             )
 
             if not response.text:
